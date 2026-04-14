@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+
+    scrape_configs:
+      - job_name: 'patient-service'
+        static_configs:
+          - targets: ['patient-service:5001']
+        metrics_path: '/metrics'
+
+      - job_name: 'lab-service'
+        static_configs:
+          - targets: ['lab-service:5002']
+        metrics_path: '/metrics'
+
+      - job_name: 'appointment-service'
+        static_configs:
+          - targets: ['appointment-service:5003']
+        metrics_path: '/metrics'

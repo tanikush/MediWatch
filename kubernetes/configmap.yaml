@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mediwatch-config
+  namespace: default
+data:
+  DB_HOST: 'postgres-service'
+  DB_USER: 'postgres'
+  PROMETHEUS_MULTIPROC_DIR: '/tmp'
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mediwatch-secrets
+type: Opaque
+stringData:
+  DB_PASSWORD: 'postgres'
+

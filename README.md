@@ -1,4 +1,4 @@
-
+<img width="769" height="126" alt="api-test" src="https://github.com/user-attachments/assets/fef048c7-a8f4-4701-8183-fdd8477b239d" /><img width="917" height="781" alt="docker-logs" src="https://github.com/user-attachments/assets/377fdc76-0bd7-4c42-8e74-fff87bfb7b64" />
 ---
 
 ```markdown
@@ -54,39 +54,39 @@ Hospitals rely on critical software systems such as patient management, lab proc
 ## 📸 Screenshots
 
 ### 🏗️ Architecture Diagram
-![Architecture](MediWatch%20hospital%20platform%20architecture.png)
+---<img width="1024" height="1536" alt="MediWatch hospital platform architecture" src="https://github.com/user-attachments/assets/3f98a81b-83a4-4016-9447-97330f600ea4" />
 
----
 
 ### 🐳 Docker Services Running
-![Docker PS](docker-ps.png)
+<img width="1146" height="347" alt="docker-ps" src="https://github.com/user-attachments/assets/d1823447-2dbe-4fbe-b822-a8e55a404ad9" />
 
 ---
 
 ### 📜 Service Logs
-![Docker Logs](docker-logs.png)
+<img width="917" height="781" alt="docker-logs" src="https://github.com/user-attachments/assets/14377b1f-f2e2-4eed-96be-6e2b0babc052" />
 
 ---
 
 ### ❤️ Health Checks
 
 **Service 1**
-![Health Check 1](Health%20Check%202.png)
+<img width="819" height="381" alt="Health Check 1" src="https://github.com/user-attachments/assets/fb6fe916-2135-47c9-84dc-d33468e126ca" />
 
 **Service 2**
-![Health Check 2](Health%20Check%203.png)
+<img width="849" height="407" alt="Health Check 2" src="https://github.com/user-attachments/assets/fd2159fd-4ba3-45be-a8ce-669fc0f7f85c" />
+
+**Service 2**
+<img width="1017" height="493" alt="Health Check 3" src="https://github.com/user-attachments/assets/9970caee-8c23-41c7-9581-7fe4634f7a80" />
 
 ---
 
 ### 🔗 API Testing
-![API Test](api-test.png)
+<img width="769" height="126" alt="api-test" src="https://github.com/user-attachments/assets/eef91d4a-2a16-4516-be10-e9c3ad31d442" />
 
 ---
 
 ### 📊 Prometheus Metrics
-![Prometheus](prometheus-metrics.png)
-
-
+<img width="1071" height="618" alt="prometheus-metrics" src="https://github.com/user-attachments/assets/13c7353a-b8d3-472a-ac83-8a13c7281a7b" />
 
 ---
 

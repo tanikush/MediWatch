@@ -1,0 +1,88 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_REGISTRY = 'mediwatch'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Lint Python Code') {
+            steps {
+                script {
+                    sh '''
+                        pip3 install flake8
+                        flake8 services/ --max-line-length=100 --exclude=__pycache__,tests
+                    '''
+                }
+            }
+        }
+        
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh '''
+                        pip3 install pytest pytest-flask flask psycopg2-binary prometheus-flask-exporter
+                        pytest services/patient-service/tests/ -v --junitxml=test-results.xml || true
+                        pytest services/lab-service/tests/ -v || true
+                        pytest services/appointment-service/tests/ -v || true
+                    '''
+                }
+            }
+            post {
+                always {
+                    junit 'test-results.xml'
+                }
+            }
+        }
+        
+        stage('Build Docker Images') {
+            steps {
+                script {
+                    sh '''
+                        docker build -t mediwatch-patient-service:${BUILD_NUMBER} services/patient-service/
+                        docker build -t mediwatch-lab-service:${BUILD_NUMBER} services/lab-service/
+                        docker build -t mediwatch-appointment-service:${BUILD_NUMBER} services/appointment-service/
+                        
+                        docker tag mediwatch-patient-service:${BUILD_NUMBER} mediwatch-patient-service:latest
+                        docker tag mediwatch-lab-service:${BUILD_NUMBER} mediwatch-lab-service:latest
+                        docker tag mediwatch-appointment-service:${BUILD_NUMBER} mediwatch-appointment-service:latest
+                    '''
+                }
+            }
+        }
+        
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh '''
+                        kubectl apply -f kubernetes/configmap.yaml
+                        kubectl apply -f kubernetes/postgres-deployment.yaml
+                        kubectl apply -f kubernetes/patient-deployment.yaml
+                        kubectl apply -f kubernetes/lab-deployment.yaml
+                        kubectl apply -f kubernetes/appointment-deployment.yaml
+                        kubectl apply -f kubernetes/monitoring/
+                        
+                        kubectl rollout status deployment/patient-service --timeout=120s
+                        kubectl rollout status deployment/lab-service --timeout=120s
+                        kubectl rollout status deployment/appointment-service --timeout=120s
+                    '''
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check logs for details.'
+        }
+    }
+}

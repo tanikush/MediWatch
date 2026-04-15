@@ -5,6 +5,7 @@
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-326CE5?logo=kubernetes)](https://kubernetes.io/)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)](https://www.python.org/)
 
+
 > A production-grade DevOps project demonstrating automated infrastructure, CI/CD pipelines, monitoring, and self-healing systems for hospital applications.
 
 ---

@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        pip3 install flake8
+                        pip3 install flake8 --break-system-packages
                         flake8 services/ --max-line-length=100 --exclude=__pycache__,tests
                     '''
                 }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        pip3 install pytest pytest-flask flask psycopg2-binary prometheus-flask-exporter
+                        pip3 install pytest pytest-flask flask psycopg2-binary prometheus-flask-exporter --break-system-packages
                         pytest services/patient-service/tests/ -v --junitxml=test-results.xml || true
                         pytest services/lab-service/tests/ -v || true
                         pytest services/appointment-service/tests/ -v || true

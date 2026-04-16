@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'patient-service'
+    static_configs:
+      - targets: ['patient-service:5001']
+        labels:
+          service: 'patient-service'
+
+  - job_name: 'lab-service'
+    static_configs:
+      - targets: ['lab-service:5002']
+        labels:
+          service: 'lab-service'
+
+  - job_name: 'appointment-service'
+    static_configs:
+      - targets: ['appointment-service:5003']
+        labels:
+          service: 'appointment-service'
+
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+        labels:
+          service: 'postgres'

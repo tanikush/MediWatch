@@ -27,11 +27,9 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        pip3 install --upgrade pip --break-system-packages || true
-                        pip3 install pytest pytest-flask flask psycopg2-binary prometheus-flask-exporter --break-system-packages || true
-                        pytest services/patient-service/tests/ -v || true
-                        pytest services/lab-service/tests/ -v || true
-                        pytest services/appointment-service/tests/ -v || true
+                        cd services/patient-service && pip3 install --break-system-packages || true && pytest tests/ -v || true
+                        cd ../lab-service && pip3 install --break-system-packages || true && pytest tests/ -v || true
+                        cd ../appointment-service && pip3 install --break-system-packages || true && pytest tests/ -v || true
                     '''
                 }
             }
@@ -57,8 +55,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        cd ~/mediwatch
-                        docker-compose up -d || true
+                        docker-compose -f /root/.jenkins/workspace/mediwatch-deploy/docker-compose.yml up -d
                         docker ps
                     '''
                 }

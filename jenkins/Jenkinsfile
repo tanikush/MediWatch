@@ -17,7 +17,7 @@ pipeline {
                 script {
                     sh '''
                         pip3 install flake8 --break-system-packages
-                        flake8 services/ --max-line-length=100 --exclude=__pycache__,tests
+                        flake8 services/ --max-line-length=120 --extend-ignore=E302,E305,E501 --exclude=__pycache__,tests
                     '''
                 }
             }

@@ -159,65 +159,58 @@ Each includes:
 
 ## 📁 Project Structure
 
+```
 mediwatch/
 ├── services/
-│ ├── patient-service/
-│ │ ├── app.py
-│ │ ├── requirements.txt
-│ │ ├── Dockerfile
-│ │ └── tests/
-│ │ └── test_patient.py
-│ │
-│ ├── lab-service/
-│ │ ├── app.py
-│ │ ├── requirements.txt
-│ │ ├── Dockerfile
-│ │ └── tests/
-│ │ └── test_lab.py
-│ │
-│ └── appointment-service/
-│ ├── app.py
-│ ├── requirements.txt
-│ ├── Dockerfile
-│ └── tests/
-│ └── test_appointment.py
-│
+│   ├── patient-service/
+│   │   ├── app.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile
+│   │   └── tests/
+│   │       └── test_patient.py
+│   ├── lab-service/
+│   │   ├── app.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile
+│   │   └── tests/
+│   │       └── test_lab.py
+│   └── appointment-service/
+│       ├── app.py
+│       ├── requirements.txt
+│       ├── Dockerfile
+│       └── tests/
+│           └── test_appointment.py
 ├── jenkins/
-│ └── Jenkinsfile
-│
+│   └── Jenkinsfile
 ├── ansible/
-│ ├── provision.yml
-│ └── inventory.ini
-│
+│   ├── provision.yml
+│   └── inventory.ini
 ├── kubernetes/
-│ ├── patient-deployment.yaml
-│ ├── lab-deployment.yaml
-│ ├── appointment-deployment.yaml
-│ ├── postgres-deployment.yaml
-│ ├── configmap.yaml
-│ └── monitoring/
-│ ├── prometheus-config.yaml
-│ ├── prometheus-deployment.yaml
-│ ├── grafana-deployment.yaml
-│ └── alertmanager-config.yaml
-│
+│   ├── patient-deployment.yaml
+│   ├── lab-deployment.yaml
+│   ├── appointment-deployment.yaml
+│   ├── postgres-deployment.yaml
+│   ├── configmap.yaml
+│   └── monitoring/
+│       ├── prometheus-config.yaml
+│       ├── prometheus-deployment.yaml
+│       ├── grafana-deployment.yaml
+│       └── alertmanager-config.yaml
 ├── remediation/
 │   ├── auto-remediation.py
 │   └── requirements.txt
-│
 ├── monitoring/
 │   ├── docker-compose.yml
 │   └── prometheus.yml
-│
 ├── scripts/
 │   ├── setup.sh
 │   ├── health-check.sh
 │   ├── rollback.sh
 │   ├── cleanup.sh
 │   └── init-db.sql
-│
 ├── docker-compose.yml
 └── README.md
+```
 
 
 

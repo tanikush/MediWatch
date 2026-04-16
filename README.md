@@ -202,14 +202,19 @@ mediwatch/
 │ └── alertmanager-config.yaml
 │
 ├── remediation/
-│ ├── auto-remediation.py
-│ └── requirements.txt
+│   ├── auto-remediation.py
+│   └── requirements.txt
+│
+├── monitoring/
+│   ├── docker-compose.yml
+│   └── prometheus.yml
 │
 ├── scripts/
-│ ├── setup.sh
-│ ├── health-check.sh
-│ ├── rollback.sh
-│ └── cleanup.sh
+│   ├── setup.sh
+│   ├── health-check.sh
+│   ├── rollback.sh
+│   ├── cleanup.sh
+│   └── init-db.sql
 │
 ├── docker-compose.yml
 └── README.md

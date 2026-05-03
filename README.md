@@ -7,7 +7,7 @@
 
 
 > A production-grade DevOps project demonstrating automated infrastructure, CI/CD pipelines, monitoring, and self-healing systems for hospital applications.
-
+> 
 ---
 
 ## 📋 Table of Contents

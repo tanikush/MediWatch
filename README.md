@@ -25,7 +25,6 @@
 - [License](#-license)
 
 ---
-
 ## 🎯 Problem Statement
 
 Hospitals rely on critical systems like patient management, lab processing, and appointment scheduling. However:
